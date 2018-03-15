@@ -54,6 +54,12 @@ int main(){
 	for(int i=0;i<n;i++){
 		gets(a);
 		cmp0=strcmp(a,leader[0].name);
+/*上面两行还可以改成
+	scanf("%s",a);
+	cmp0=strcmp(a,leader[0].name);
+注意scanf("%s",a);和scanf("%s",&a[i]);我发现，还是有区别的；不信替换了试试，虽然都能编译，但是运行结果后者却不对，也不晓得为啥
+
+*/
 		cmp1=strcmp(a,leader[1].name);
 		cmp2=strcmp(a,leader[2].name);
 		if(cmp0==0)leader[0].count ++;
