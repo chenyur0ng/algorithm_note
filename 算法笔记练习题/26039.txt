@@ -51,17 +51,16 @@ int main(){
 	}
   	scanf("%d",&x);  
   	for(i=0;i<9;i++){
-  		if(x>a[i]){
+  		if(x<a[i]){
   			record_i=i;
   			break;
   		}
   	}
 	for(j=9;j>record_i;j--) {
-		a[j]=a[j-1];
-        	a[j]=x; 
+		a[j]=a[j-1]; 
 	}
-
+	a[record_i]=x;
    	for(i=0;i<10;i++)  
-     	printf("%4d\n",a[i]);  
+     	printf("%d\n",a[i]);  
  	return 0;
 }

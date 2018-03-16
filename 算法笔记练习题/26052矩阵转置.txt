@@ -16,21 +16,20 @@
 2 5
 3 6
 */
-#include<iostream>
-using namespace std;
+#include<stdio.h>
 int main(){
 	int a[2][3],b[3][2];
 	int i,j;//i表示行，j表示列；
 	for(i=0;i<2;i++){
 		for(j=0;j<3;j++){
-			cin>>a[i][j];
+		    scanf("%d",&a[i][j]);
 		    b[j][i]=a[i][j];
 		}
 	}
 	for(i=0;i<3;i++){
 		for(j=0;j<2;j++){
-			cout<<" "<<b[i][j];
-			if(j==1)cout<<endl;
+			printf("%d ",b[i][j]);
+			if(j==1)printf("\n");
 		}
 	}
 	return 0;

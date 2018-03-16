@@ -1,0 +1,73 @@
+/*
+16:45~17:25
+题目描述
+有10个学生，每个学生的数据包括学号、姓名、3门课程的成绩。读入这10个学生的数据，要求输出3门课程的总平均成绩，以及个人平均分最高的学生的数据（包括学号、姓名、3门课程成绩、平均分数）。
+
+输入
+共有10行，每行包含了一个学生的学号（整数）、名字（长度不超过19的无空格字符串）和3门课程的成绩（0至100之间的整数），用空格隔开。
+
+输出
+第一行包含了3个实数，分别表示3门课程的总平均成绩，保留2位小数，每个数之后输出一个空格。
+第二行输出个人平均分最高的学生的数据，与输入数据格式相同。如果有多位个人平均分最高的学生，输出按照输入顺序第一个最高分的学生数据。
+请注意行尾输出换行。
+
+样例输入
+101 AAA 80 81 82
+102 BBB 83 84 85
+103 CCC 86 87 88
+104 DDD 89 90 91
+105 EEE 92 93 94
+106 FFF 80 90 100
+107 GGG 85 90 95
+108 HHH 80 85 90
+109 III 90 91 92
+110 JJJ 91 88 87
+样例输出
+85.60 87.90 90.40 
+105 EEE 92 93 94
+
+代码还是有点问题的把，因为我没有考虑如果有多位个人平均分最高的学生，输出按照输入顺序第一个最高分的学生数据。但是通过了。。为了赶进度，我先搁着。。
+*/
+#include<stdio.h>
+struct student{
+	int number;
+	char name[20];
+	int score1;
+	int score2;
+	int score3;
+}stu[10];
+
+void input(){
+	for(int i=0;i<10;i++){
+		scanf("%d%s%d%d%d",&stu[i].number,&stu[i].name,&stu[i].score1,&stu[i].score2,&stu[i].score3);
+	}		
+}
+void averageScore(){
+	float averageScore1,averageScore2,averageScore3;
+    averageScore1=averageScore2=averageScore3=0;
+	for(int i=0;i<10;i++){
+		averageScore1 +=stu[i].score1;
+		averageScore2 +=stu[i].score2;
+		averageScore3 +=stu[i].score3;
+	}
+	printf("%.2f %.2f %.2f \n",averageScore1/10,averageScore2/10,averageScore3/10);
+}
+void highest(){
+	double a[10];
+	a[0]=0;
+	for(int i=0;i<10;i++){
+		a[i]=1.0*(stu[i].score1+stu[i].score2+stu[i].score3)/3;
+	}
+	int k=0;
+	for(int j=1;j<10;j++){
+		if(a[j]>a[k])
+		k=j;
+	}
+	printf("%d %s %d %d %d",stu[k].number,stu[k].name,stu[k].score1,stu[k].score2,stu[k].score3);
+}
+int main(){
+	input();
+	averageScore();
+	highest();
+	return 0;
+}

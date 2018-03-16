@@ -1,0 +1,49 @@
+/*
+16:34~16:47
+题目描述
+编写两个函数input和print，分别用来输入5个学生的数据记录和打印这5个学生的记录。对于每一个学生，其记录包含了学号、名字、3门课程的成绩共5项。用主函数分别调用input和print函数进行输入和输出。
+要求使用结构体数组实现，结构体中包括了每个学生的5项记录。
+
+输入
+共有5行，每行包含了一个学生的学号（整数）、名字（长度不超过19的无空格字符串）和3门课程的成绩（0至100之间的整数），用空格隔开。
+
+输出
+与输入格式相同，每行输出一个学生的所有记录。
+请注意行尾输出换行。
+
+样例输入
+101 AAA 80 81 82
+102 BBB 83 84 85
+103 CCC 86 87 88
+104 DDD 89 90 91
+105 EEE 92 93 94
+样例输出
+101 AAA 80 81 82
+102 BBB 83 84 85
+103 CCC 86 87 88
+104 DDD 89 90 91
+105 EEE 92 93 94
+*/
+#include<stdio.h>
+struct student{
+	int number;
+	char name[20];
+	int score1;
+	int score2;
+	int score3;
+}stu[5];
+void input(){
+	for(int i=0;i<5;i++){
+		scanf("%d%s%d%d%d",&stu[i].number,&stu[i].name,&stu[i].score1,&stu[i].score2,&stu[i].score3);
+	}		
+}
+void print(){
+	for(int i=0;i<5;i++){
+	printf("%d %s %d %d %d\n",stu[i].number,stu[i].name,stu[i].score1,stu[i].score2,stu[i].score3);
+	}	
+}
+int main(){
+	input();
+	print();
+	return 0;
+}
