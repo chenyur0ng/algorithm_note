@@ -41,7 +41,7 @@ int main(){
 	struct student stu[20]; 
 	struct student *p;
 	scanf("%d",&n);
-	for( p=stu;p<stu+n;p++){//错，no conversion from 'struct student *' to 'int *'，你需要定义一个指向结构体变量的指针，而不是一个指针变量
+	for( p=stu;p<stu+n;p++){/*本来写错了原因是，no conversion from 'struct student *' to 'int *'，你需要定义一个指向结构体变量的指针，而不是一个指针变量*/
 		scanf("%5d %15s %c %d",&(p->num),&(p->name),&(p->sex),&(p->age));
 	}
 	for(p=stu;p<stu+n;p++){
