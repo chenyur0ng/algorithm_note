@@ -38,3 +38,45 @@ int main(){
 	printf("%d",i);
 	return 0;
 }
+修改了一下：
+#include<stdio.h>
+int main(){
+	int n,i;
+	i=0;
+	scanf("%d",&n);
+	do{
+		if(n%2==0){
+			n/=2;
+			i++;
+		}
+		else if(n=(3*n+1)/2)
+			i++;
+		if(n==1){
+			break;
+			}
+
+	}while(n<1000);
+	printf("%d",i);
+	return 0;
+}
+#include<stdio.h>
+int main(){
+	int n,i;
+	i=0;
+	scanf("%d",&n);
+	while(n>1){
+	  if(n%2==0){
+		n/=2;
+		i++;
+          }
+	  else if(n=(3*n+1)/2)
+			i++;
+	  if(n==1){
+	    break;
+	  }
+        }
+	printf("%d",i);
+	return 0;
+}
+
+乘法溢出：如果这个数是987654321，这么大的数字：）
