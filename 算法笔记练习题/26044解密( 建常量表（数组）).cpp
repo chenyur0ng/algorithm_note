@@ -22,6 +22,8 @@ ZYX123zyx
 样例输出
 ABC123abc
 */
+
+/*写不下去系列
 include<stdio.h>
 int main(){
 	int i;
@@ -59,6 +61,18 @@ int main(){
 		}
 	}
 	return 0;
+}
+*/
+#include<stdio.h>
+char *s="AZBYCXDWEVFUGTHSIRJQKPLOMNazbycxdwevfugthsirjqkplomn";
+int main(){
+    int i,c;
+    while((c=getchar())!=EOF){
+        for(i=1;s[i] && s[i]!=c;i++);
+        if(s[i])putchar(s[i-1]);
+		else putchar(c);
+    }
+    return 0;
 }
 
 

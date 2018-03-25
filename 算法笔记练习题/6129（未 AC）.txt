@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+int main(){
+	char str[100];
+	int m,a[100];
+	int i,sum1,sum2,sum3,count,sum4;
+	sum1=sum2=sum3=sum4=0;
+	float x;
+	int j=1;
+	while(scanf("%s",str)!=EOF){
+		for(i=0;i<strlen(str);i++){
+			m=(str[i]-'0')%5;
+			switch(m){
+				case 0:if(str[i]%2==0)sum1+=str[i];
+				case 1:	
+						sum2+=pow(-1,j+1)*str[i];
+						j++;
+				case 2: sum3++;
+				case 3: count++;
+						sum4+=str[i];
+				case 4: a[i]=str[i];
+			}
+		}
+		x=sum4*1.0/count;
+		for(i=1;i<strlen(str);i++){
+			if(a[i]>a[i-1]){
+				int temp=a[i];
+				a[i]=a[i+1];
+				a[i+1]=temp;
+			}
+		}
+		printf("%d %d %d %.1f %d",sum1,sum2,sum3,x,a[0]);
+	}
+	return 0;
+}
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char str[100];
+	int a[100];
+	while(scanf("%s",str)!=EOF){
+		for(int i=0;i<strlen(str);i++){
+			a[i]=(str[i]-'0')%5;
+		}
+	}
+	for(int j=0;j<strlen(str);j++)
+		printf("%d ",a[i]);
+	return 0;
+}
